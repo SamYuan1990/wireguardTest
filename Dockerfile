@@ -4,7 +4,7 @@ RUN apt install -y wireguard
 RUN apt install -y iproute2
 RUN apt install -y net-tools
 RUN apt-get install -y iputils-ping
-RUN apt-get install -y nginx
+RUN echo 2 | apt-get install -y nginx
 
 RUN service nginx start
 
