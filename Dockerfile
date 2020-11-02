@@ -1,10 +1,19 @@
-FROM ubuntu
+FROM ubuntu:bionic
 RUN apt-get update
 RUN apt install -y wireguard
 RUN apt install -y iproute2
 RUN apt install -y net-tools
 RUN apt-get install -y iputils-ping
-RUN echo 2 | apt-get install -y nginx
+
+#RUN export DEBIAN_FRONTEND=noninteractive
+
+#RUN ln -fs /usr/share/zoneinfo/America/New_York /etc/localtime
+#RUN apt-get install -y tzdata
+#RUN dpkg-reconfigure --frontend noninteractive tzdata
+
+#RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
+
+RUN apt-get install -y nginx
 
 RUN service nginx start
 
