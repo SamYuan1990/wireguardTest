@@ -15,6 +15,11 @@ RUN apt-get install -y iputils-ping
 
 RUN apt-get install -y nginx
 
+RUN mkdir -p /home/demo
+
+RUN chgrp -R 0 /home/demo && \
+    chmod -R g=u /home/demo
+
 RUN service nginx start
 
 CMD tail -f /dev/null
