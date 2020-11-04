@@ -35,5 +35,6 @@ RUN git clone https://git.zx2c4.com/wireguard-go
 RUN cd wireguard-go && make
 RUN ls /dev/net/tun
 #RUN /wireguard-go/wireguard-go wg0
+COPY start.sh /
 
-CMD tail -f /dev/null
+CMD start.sh
