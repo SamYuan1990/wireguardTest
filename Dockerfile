@@ -22,7 +22,7 @@ RUN chgrp -R 0 /home/demo && \
 
 RUN mkdir -p /dev/net
 RUN ls /dev/net/tun
-RUN chmod 0666 /dev/net/tun
+#RUN chmod 0666 /dev/net/tun
 RUN service nginx start
 RUN apt-get install -y build-essential
 # RUN apt-get -y insttall make
