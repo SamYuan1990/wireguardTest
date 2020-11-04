@@ -33,5 +33,5 @@ ENV PATH=$PATH:/usr/local/go/bin
 RUN apt-get install -y git
 RUN git clone https://git.zx2c4.com/wireguard-go
 RUN cd wireguard-go && make
-
+RUN ls /dev/net/tun
 CMD tail -f /dev/null
