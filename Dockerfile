@@ -21,7 +21,7 @@ RUN chgrp -R 0 /home/demo && \
     chmod -R g=u /home/demo
 
 RUN mkdir -p /dev/net
-RUN mknod /dev/net/tun c 10 200
+RUN ls /dev/net/tun
 RUN chmod 0666 /dev/net/tun
 RUN service nginx start
 RUN apt-get install -y build-essential
