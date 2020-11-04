@@ -36,5 +36,7 @@ RUN cd wireguard-go && make
 RUN ls /dev/net/tun
 #RUN /wireguard-go/wireguard-go wg0
 COPY config1 /
-EXPOSE 90000
+COPY config2 /
+EXPOSE 24464
+EXPOSE 51348
 CMD tail -f /dev/null
