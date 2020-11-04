@@ -20,6 +20,18 @@ RUN mkdir -p /home/demo
 RUN chgrp -R 0 /home/demo && \
     chmod -R g=u /home/demo
 
+RUN mkdir -p /dev/net
+RUN mknod /dev/net/tun c 10 200
+RUN chmod 0666 /dev/net/tun
 RUN service nginx start
+RUN apt-get install -y build-essential
+# RUN apt-get -y insttall make
+RUN apt-get install -y wget
+RUN wget https://golang.org/dl/go1.15.3.linux-s390x.tar.gz
+RUN tar -C /usr/local -xzf go1.15.3.linux-s390x.tar.gz 
+ENV PATH=$PATH:/usr/local/go/bin
+RUN apt-get install -y git
+RUN git clone https://git.zx2c4.com/wireguard-go
+RUN cd wireguard-go && make
 
 CMD tail -f /dev/null
